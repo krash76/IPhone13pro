@@ -1,6 +1,5 @@
 //console.dir (document);
-
-document.querySelector('.header-menu__logo').style.border = "1px solid red";
+//document.querySelector('.header-menu__logo').style.border = "1px solid red";
 
 const links = document.querySelectorAll(".header-menu__item a");
 seamless.polyfill();
@@ -22,7 +21,5 @@ links.forEach((element) => {
           inline: "center",
     });
     }
-    
   })
-
-  })
+})

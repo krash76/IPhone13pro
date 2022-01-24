@@ -1,25 +1,38 @@
 //console.dir (document);
 //document.querySelector('.header-menu__logo').style.border = "1px solid red";
 
-const links = document.querySelectorAll(".header-menu__item a");
-seamless.polyfill();
+const scrollFunction = () => {
+  const links = document.querySelectorAll(".header-menu__item a");
+  const linkCharacteristics = document.querySelector(".card-details__link-characteristics");
 
-links.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    event.preventDefault();
-    const id = element.getAttribute("href").substring(1);
+  const arrayOfLinks =  [...links, linkCharacteristics];
+
+  seamless.polyfill();
+
+  arrayOfLinks.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      event.preventDefault();
+      const id = element.getAttribute("href").substring(1);
+      
     const section = document.getElementById(id);
-    if (section) {
-      seamless.elementScrollIntoView( section, {
-        behavior: "smooth",
-        block: "start" 
-      })
-    } else {
-        seamless.elementScrollIntoView(document.querySelector("#characteristics"), {
+      if (section) {
+        seamless.elementScrollIntoView( section, {
           behavior: "smooth",
-          block: "center",
-          inline: "center",
-    });
-    }
+          block: "start" 
+        })
+      } else {
+          seamless.elementScrollIntoView(document.querySelector("#characteristics"), {
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+      });
+      }
+    })
   })
-})
+}
+
+scrollFunction();
+
+
+
+

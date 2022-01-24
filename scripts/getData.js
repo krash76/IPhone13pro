@@ -7,8 +7,8 @@ const getDataFunction = () => {
 
   const render = (data) => {
     dataList.innerHTML = "";
+    //console.log(data);
     data.forEach(item => {
-      console.log (item);
       dataList.insertAdjacentHTML("beforeend", 
           `<li>
 						<article class="cross-sell__item">
@@ -22,7 +22,7 @@ const getDataFunction = () => {
   };
 
   const sliceArray = (data, index) => {
-    render(data.slice(0, index))
+    return(data.slice(0, index));
   }    
 
   const changeData = (data) => {
@@ -36,7 +36,7 @@ const getDataFunction = () => {
   }
 
   const getGoods = () => {
-    fetch('https://promoiphone13-default-rtdb.firebaseio.com/')
+    fetch('https://promoiphone13-default-rtdb.firebaseio.com/db.json')
     .then((response) =>  {
     if(response.ok) {
       return response.json();
